@@ -27,10 +27,11 @@ Using these resources (and any others you deem necessary) complete the following
     4. Devise acceptance criteria for the feature
     5. Put all of this into a text file called FEATURE_LIST at the top level of the project
 2. Choose one (or more) feature(s) to implement yourself by iterating on the ‘full view’ barebones chat application codebase (look at /src/sample/fullview.html). This includes:
-    1. A GitHub pull request (https://github.com/pnyka/Applozic-Web-Plugin) that includes any and all information that another engineer would need to review your code. E.g. the problem, your solution, documentation/resources used, tests and validation, open questions, TODOs, etc.
+    1. A GitHub pull request (https://github.com/pnyka/Pnyka-Challenge-Applozic-Web-Plugin) that includes any and all information that another engineer would need to review your code. E.g. the problem, your solution, documentation/resources used, tests and validation, open questions, TODOs, etc.
     2. For any feature that requires changes to data model, you may mock data as long as you describe the changes required in the data and/or APIs
     3. A short video screen capture of the feature working as intended
     4. Assign the pull request to greysongregory (https://github.com/greysongregory)
+    5. When creating the pull request, make sure to use pnyka/Pnyka-Challenge-Applozic-Web-Plugin as the base fork (not the App-Lozic owned fork)
 3. Create a short bulleted list of tools, tricks, libraries and references used - what does your development environment consist of?
     1. Put this in a text file called DEV_ENV at the top level of the project
 4. Keep notes on things you’ve learned during this process
