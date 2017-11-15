@@ -2633,7 +2633,7 @@ var MCK_CLIENT_GROUP_MAP = [];
 
             _this.likeMessage = function(msgKey) {
                 // TODO this should append the number of likes to a div
-                // on the appropriate message
+                // below the appropriate message
 
                 $applozic("." + msgKey).addClass(".mck-icon-like");
 
@@ -2642,7 +2642,7 @@ var MCK_CLIENT_GROUP_MAP = [];
                 // $applozic("." + msgKey + ".mck-msg-right-muted").html("1 like");
                 $applozic(".mck-msg-right-muted").html("1 like");
 
-                // $applozic(".mck-msg-left-muted").html("4 likes");
+                // $applozic(".mck-msg-left-muted").html("1 like");
                 // need to add instead of overwrite
                 // and obviously need to track likes instead of hardcoding a number
 
@@ -2653,7 +2653,7 @@ var MCK_CLIENT_GROUP_MAP = [];
             _this.dislikeMessage = function(msgKey) {
                 // TODO make the button functional - 
                 // this should append the number of dislikes to a div
-                // on the appropriate message
+                // below the appropriate message
             };
 
 
