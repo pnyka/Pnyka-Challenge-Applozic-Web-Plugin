@@ -67,6 +67,8 @@ var MCK_CLIENT_GROUP_MAP = [];
             'delete': 'Delete',
             'reply': 'Reply',
             'forward': 'Forward',
+            'like': 'Like',
+            'dislike': "Dislike",
             'copy': 'Copy',
             'block.user': 'Block User',
             'unblock.user': 'Unblock User',
@@ -1726,6 +1728,15 @@ var MCK_CLIENT_GROUP_MAP = [];
                 $mck_msg_new.data('forwardMessageKey', $applozic(this).parents('.mck-m-b').data("msgkey"));
                 $mck_msg_new.trigger('click');
             });
+
+            $applozic(d).on("click", ".mck-message-like", function() {
+                _this.likeMessage($applozic(this).parents('.mck-m-b').data("msgkey"));
+            }); // like button
+
+            $applozic(d).on("click", ".mck-message-dislike", function() {
+                _this.likeMessage($applozic(this).parents('.mck-m-b').data("msgkey"));
+            }); // dislike button
+
             $applozic(".mck-minimize-icon").click(function() {
                 $applozic(".mck-box-md,.mck-box-ft").animate({
                     height: "toggle"
@@ -2245,7 +2256,8 @@ var MCK_CLIENT_GROUP_MAP = [];
                     $mck_msg_error.removeClass('vis').addClass('n-vis');
                     $mck_msg_response.removeClass('vis').addClass('n-vis');
                 });
-                $applozic(d).bind("click", function(e) {
+                $
+                .bind("click", function(e) {
                     $applozic(".mck-context-menu").removeClass('vis').addClass('n-vis');
                     if (d.activeElement.id !== "mck-msg-sbmt") {
                         $mck_write_box.removeClass('mck-text-req');
@@ -2612,6 +2624,20 @@ var MCK_CLIENT_GROUP_MAP = [];
                 $('#mck-reply-msg').html(message.message);
                     }
                 $("#mck-text-box").data("AL_REPLY", msgKey);
+            };
+
+            _this.likeMessage = function(msgKey) {
+                // TODO make the button functional - 
+                // this should append the number of likes to a div
+                // on the appropriate message
+                // "like" icon TBD so just a number for now            
+            };
+
+            _this.dislikeMessage = function(msgKey) {
+                // TODO make the button functional - 
+                // this should append the number of likes to a div
+                // on the appropriate message
+                // "dislike" icon TBD so just a number for now
             };
 
             $("#close").click(function() {
@@ -3702,6 +3728,8 @@ _this.sendVideoCallMessage = function(callId, msgType, contentType, audioOnly) {
                 '<li><a class="mck-message-forward">${msgForwardExpr}</a></li>' +
                 '<li><a class="mck-message-delete">${msgDeleteExpr}</a></li>' +
                 '<li><a class="mck-message-reply ">${msgReplyExpr}</a></li>' +
+                '<li><a class="mck-message-like ">${msgLikeExpr}</a></li>' + // like button
+                '<li><a class="mck-message-dislike ">${msgDislikeExpr}</a></li>' + // dislike button
                 '</ul>' +
                 '</div>' +
                 '</div>';
@@ -4016,6 +4044,7 @@ _this.sendVideoCallMessage = function(callId, msgType, contentType, audioOnly) {
             };
             _this.addTooltip = function(msgKey) {
                 $applozic("." + msgKey + " .mck-icon-time").attr('title', 'pending');
+                $applozic("." + msgKey + " .mck-icon-like").attr('title', 'like'); // add like tooltip
                 $applozic("." + msgKey + " .mck-btn-trash").attr('title', 'delete');
                 $applozic("." + msgKey + " .mck-icon-sent").attr('title', 'sent');
                 $applozic("." + msgKey + " .mck-btn-forward").attr('title', 'forward message');
@@ -4176,6 +4205,8 @@ _this.sendVideoCallMessage = function(callId, msgType, contentType, audioOnly) {
                     msgTypeExpr: msg.type,
                     msgDeleteExpr: MCK_LABELS['delete'],
                     msgReplyExpr: MCK_LABELS['reply'],
+                    msgLikeExpr: MCK_LABELS['like'], // like button
+                    msgDislikeExpr: MCK_LABELS['dislike'], // dislike button
                     msgForwardExpr: MCK_LABELS['forward'],
                     msgSourceExpr: msg.source,
                     statusIconExpr: statusIcon,
