@@ -19,8 +19,9 @@ Estimate how long it would take to implement the feature (break this down as bes
 - implement area of website where information can be shared x-hours/days before
 discussion begins for each topic/sub-topic. this should persist throughout and 
 possibly afterwards conversation in an archive
-- ~2 hours
+- ~3 hours
 - pin either a link to the page or all of the links at the top of the chat room
+- ~1 hour
 
 Devise acceptance criteria for the feature:
 - Have an easy to use and access page for each upcoming topic with
@@ -28,6 +29,8 @@ links to relevant information on the topic
 - This page should show the date of the upcoming conversation (if decided)
 - After the discussion has ended, this should be archived into a "past discussions"
 section
+- Could potentially use the "Context (Topic) based Chat" feature of Applozic
+  for each subtopic
 
 
 ###############################################################################
@@ -41,11 +44,12 @@ me so I can learn about the other sides to an issue. Ideally there would be a
 Explain why you chose this as a top 3 choice: It isn't very constructive to have
 a conversation with people who agree with you on everything, so by ensuring that
 there is an even(ish) break down of users with various views on a topic before
-the discussion begins, you will have a more fruitful experience. 
+the discussion begins, you will have a more fruitful experience. Again, this was
+echoed multiple times in the feedback.
 
 Estimate how long it would take to implement the feature (break this down as best you can):
 
-- ~3 hours to implement timers based on a criteria
+- ~4 hours to implement timers based on a criteria
 
 
 Devise acceptance criteria for the feature:
@@ -92,5 +96,5 @@ Estimate how long it would take to implement the feature (break this down as bes
 Devise acceptance criteria for the feature:
 - user can easily click on a comment and like or dislike it
 - comment shows how many likes and dislikes it received
-- user can easily click on a button to see top rated comments to get up to speed
+- user can easily click on a button to see top/bottom rated comments to get up to speed
 on conversation

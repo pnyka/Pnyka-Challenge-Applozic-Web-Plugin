@@ -2626,24 +2626,35 @@ var MCK_CLIENT_GROUP_MAP = [];
                 $("#mck-text-box").data("AL_REPLY", msgKey);
             };
 
-            _this.likeMessage = function(msgKey) {
-                // TODO make the button functional - 
-                // this should append the number of likes to a div
-                // on the appropriate message
-                // "like" icon TBD so just a number for now            
-            };
-
-            _this.dislikeMessage = function(msgKey) {
-                // TODO make the button functional - 
-                // this should append the number of likes to a div
-                // on the appropriate message
-                // "dislike" icon TBD so just a number for now
-            };
-
             $("#close").click(function() {
                 $('#mck-reply-to-div').removeClass('vis').addClass('n-vis');
                 $("#mck-text-box").data("AL_REPLY", '');
             });
+
+            _this.likeMessage = function(msgKey) {
+                // TODO this should append the number of likes to a div
+                // on the appropriate message
+
+                $applozic("." + msgKey).addClass(".mck-icon-like");
+
+                // need to add only to the correct message, not all
+                // trying to do that with msgKey but not working
+                // $applozic("." + msgKey + ".mck-msg-right-muted").html("1 like");
+                $applozic(".mck-msg-right-muted").html("1 like");
+
+                // $applozic(".mck-msg-left-muted").html("4 likes");
+                // need to add instead of overwrite
+                // and obviously need to track likes instead of hardcoding a number
+
+                // close menu after click
+                $applozic(".mck-context-menu").removeClass("vis").addClass("n-vis");
+            };
+
+            _this.dislikeMessage = function(msgKey) {
+                // TODO make the button functional - 
+                // this should append the number of dislikes to a div
+                // on the appropriate message
+            };
 
 
             _this.deleteMessage = function(msgKey) {
@@ -4044,7 +4055,7 @@ _this.sendVideoCallMessage = function(callId, msgType, contentType, audioOnly) {
             };
             _this.addTooltip = function(msgKey) {
                 $applozic("." + msgKey + " .mck-icon-time").attr('title', 'pending');
-                $applozic("." + msgKey + " .mck-icon-like").attr('title', 'like'); // add like tooltip
+                $applozic("." + msgKey + " .mck-icon-like").attr('title', 'liked'); // add like tooltip
                 $applozic("." + msgKey + " .mck-btn-trash").attr('title', 'delete');
                 $applozic("." + msgKey + " .mck-icon-sent").attr('title', 'sent');
                 $applozic("." + msgKey + " .mck-btn-forward").attr('title', 'forward message');
@@ -4053,7 +4064,7 @@ _this.sendVideoCallMessage = function(callId, msgType, contentType, audioOnly) {
                 $applozic("." + msgKey + " .msgtype-outbox-cr").attr('title', 'sent via Carrier');
                 $applozic("." + msgKey + " .msgtype-outbox-mck").attr('title', 'sent');
                 $applozic("." + msgKey + " .msgtype-inbox-cr").attr('title', 'received via Carrier');
-                $applozic("." + msgKey + " .msgtype-inbox-mck").attr('title', 'recieved');
+                $applozic("." + msgKey + " .msgtype-inbox-mck").attr('title', 'received');
             };
             _this.fetchContact = function(contactId) {
                 var contact = _this.getContact(contactId);
