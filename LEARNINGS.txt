@@ -1,0 +1,1 @@
+I learned how to hunt down specific aspects of a web app. For example, the message bubble is hiding in a div class called "mck-msg-text mck-msg-content", which is hiding in a giant concatenated string of divs, which is inside a js variable called markup.

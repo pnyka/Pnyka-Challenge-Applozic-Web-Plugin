@@ -1,0 +1,14 @@
+To deploy the web app:
+	- register a domain name with AWS
+	- launch an instance with AWS Lightsail
+	- get static IP
+	- launch the script
+	- choose a server plan
+	- secure the shell ... connect via browser
+	- login with key pair
+	- move & protect the key
+	- use Git clone to put app onto server
+	- make database, install, seed data, etc...
+	- install Nginx
+	- replace the Nginx config with our own
+	- run in background with nohup
