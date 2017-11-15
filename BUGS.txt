@@ -1,0 +1,2 @@
+1) JSFiddler is repeating itself. Check jQuery to see if the message is being sent more than once, but at different times.
+

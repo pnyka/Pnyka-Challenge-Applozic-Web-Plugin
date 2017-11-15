@@ -1,0 +1,114 @@
+#1 LIKE BUTTON
+	i. User Story: 
+		As a user, I want to visually "like" or "thumbs up" another
+		user's comment.
+
+	ii. Why this is top 3:
+			A) helps users know if other users agree with them
+			B) helps users gauge reactions (the absence of a
+				"like" communicates a lack of enthusiasm, needing
+				extra time to think, etc...)
+			C) provides a way to communicate that isn't just
+				textual (sometimes, it's easier to nod your head
+				rather than explain why you're nodding your head)
+	 
+	iii. How long will this take:
+			This may take about 5 hours because of these steps:
+				- create the "like" button
+				- visual indication of "like" not clicked (red light)
+				- visual indication of "like" after being clicked (green light)
+				- create a "like" table in the database
+				- make sure the table has columns for:
+					- the user_id 
+					- the like_id (they're all unique in case
+						they ever need to be counted or verified
+						in some way)
+					- the comment_id
+				- create the js file that has functions to listen for 
+					the "like" click, collect the data, and disable the
+					button after it has been clicked
+				- write tests to make sure it all works
+
+	iv. Acceptance Criteria:
+		- When a user agrees with a comment, they can "like" the comment.
+		- "like" button is consistent throughout application.
+		- If a user "likes" a comment, it is visually indicated.
+
+
+
+#2 USER IDENTIFIER (longer username, 40 characters)
+	i. User Story:
+		As a user, I want to represent myself with a short description.
+
+	ii. Why this is top 3:
+		A) allows users to represent their humanity and character
+		B) provides a way for other users to identify who they're talking to,
+			not just a name with no face/story
+		C) adds more context/background info to participants
+
+	iii. How long will this take:
+		This should take about 1 hour because of these steps:
+			- change the data model to allow more characters in the username
+			- write tests to make sure it works
+			- maybe add a few lines to the prompt when users create their
+				username -- suggest they add short quip about their character
+
+	iv. Acceptance Criteria:
+		- When a user is creating their username, they can write up to 40 chars
+		- Full username is visible in the sidebox
+
+
+
+#3 REMEMBER PLACE IN TIMELINE
+	i. User Story:
+		As a user, if I step away from a chat, I want to 
+		pickup where I left off when I return.
+
+	ii. Why this is top 3:
+		A) allows users to catch up on the discussion, if they 
+			were away/busy
+		B) keeps users from feeling lost or feel like they're 
+			missing out, if they step away
+		C) encourages users to take breaks (without consequences) 
+			when they need them
+
+	iii. How long will this take:
+		** This might not be the most graceful implementation, 
+			but I think it can work. **
+
+		This could take several days because of these steps and because I'm unfamiliar with this:
+			- create an "away" button
+			- visual indication of "away" and "present"
+			- create an "away" column in the user table 
+				- column is True if user away
+				- column is False if user present
+			- create a "current comment" column in the user table
+				- if a user clicks "away", the comment_id of the last 
+					comment in their chat will be saved in the "current comment" column
+			- create the js file that has functions to listen for 
+				the "away" click, collects the data (away and current comment), 
+				and updates the table/columns
+			- 	when user resets their status to "present" they're re-routed to 
+				the "current comment" location
+				- this means the chat screen has some kind of scroll function that 
+					scrolls to the "current comment"
+			- write tests to make sure it all works
+
+	iv. Acceptance Criteria:
+		- If a user is away, the chat remembers the user's place in the timeline.
+		- When a user returns (is present), the chat will automatically pull up the 
+			user's last location in the timeline.
+
++++++++++++++++++++++++++++++ OTHER FEATURE IDEAS ++++++++++++++++++++++++++++++++++++++++++
+
+- maybe optional examples of past conversations for ppl who don't understand the format
+	of how these conversations usually proceed
+- optional tips for "productive" conversations
+- threads for comments/messages, so thoughts don't get jumbled
+- separate tab for sharing links, in case people want to read up on the topic and so
+	resources will be all in one place instead of sporadically within the chat
+
+
+
+
+
