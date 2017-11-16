@@ -1,0 +1,7 @@
+- When the user does a 2-finger click on a message to bring up the context menu,
+  they cannot click away to make the menu close. The only way to close the menu
+  is to choose an option.
+- Impact on the user is high, it's pretty annoying and no good way to get out 
+  of it.
+- A solution would be to add the ability to close the menu when you click anywhere
+  that isn't one of the menu options.

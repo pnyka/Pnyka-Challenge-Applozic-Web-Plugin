@@ -1,0 +1,100 @@
+Feature 1: 
+
+User Story: As a user, I want to feel more prepared for the discussion. Reading
+relevant articles, watching news stories, documentaries, etc. would better enable
+me to contribute to the conversation. Additionally, I want time before the
+discussion to fit in consuming and digesting these pieces of information into my
+schedule.
+
+Explain why you chose this as a top 3 choice: This was listed in the "recurring 
+comments" section, and as I read through the individual rounds I saw that echoed
+as well. It wouldn't feel great to join a conversation you don't have an opinion 
+on or knowledge to share about it. 
+
+Estimate how long it would take to implement the feature (break this down as best you can):
+- lead time of someone sourcing information (Pynka employee or user?) this is recurring
+    - if user, lead time of someone checking over information to make sure it covers
+    both sides and is relevant
+    - ~2 hours/topic for well researched/vetted info
+- implement area of website where information can be shared x-hours/days before
+discussion begins for each topic/sub-topic. this should persist throughout and 
+possibly afterwards conversation in an archive
+- ~3 hours
+- pin either a link to the page or all of the links at the top of the chat room
+- ~1 hour
+
+Devise acceptance criteria for the feature:
+- Have an easy to use and access page for each upcoming topic with
+links to relevant information on the topic
+- This page should show the date of the upcoming conversation (if decided)
+- After the discussion has ended, this should be archived into a "past discussions"
+section
+- Could potentially use the "Context (Topic) based Chat" feature of Applozic
+  for each subtopic
+
+
+###############################################################################
+
+Feature 2: 
+
+User Story: As a user, I want to talk with people who have different views than
+me so I can learn about the other sides to an issue. Ideally there would be a 
+50/50 split on for/against, but this isn't a hard and fast rule.
+
+Explain why you chose this as a top 3 choice: It isn't very constructive to have
+a conversation with people who agree with you on everything, so by ensuring that
+there is an even(ish) break down of users with various views on a topic before
+the discussion begins, you will have a more fruitful experience. Again, this was
+echoed multiple times in the feedback.
+
+Estimate how long it would take to implement the feature (break this down as best you can):
+
+- ~4 hours to implement timers based on a criteria
+
+
+Devise acceptance criteria for the feature:
+I believe that it's already spec'ed to have the users say whether they're 
+for/neutral/against a topic, so:
+- Put a gate on the conversation opening until there are enough people
+on both sides. 
+(However, there may be a bottleneck if that simply doesn't happen,
+so you could:)
+- Enforce a time limit on this i.e. if you get enough people on both sides,
+ the discussion is scheduled, but if you don't get enough people within
+X days/hours, it still opens up, but a disclaimer is shown to users
+- nice to have: in the topic description, show a dynamic pie chart of positions 
+of people who've signed up for the discussion. 
+
+###############################################################################
+
+Feature 3: 
+
+User Story: As a user, it's difficult for me to jump back into a conversation
+after being idle for a while. I want a way to get quickly caught up on the key
+points that I've missed. I'd also like the ability to like/dislike comments so that
+when I come back, I can quickly see the highest rated comments.
+
+Explain why you chose this as a top 3 choice: Here I'm combining 2 pieces of user
+feedback into one feature - like/dislike buttons and people expressing hardship in
+getting back into the conversation. The latter seems like a very large issue - the
+user might just give up and not contribute anymore if they feel like they are unable
+to catch back up without spending a significant amount of time.
+
+Estimate how long it would take to implement the feature (break this down as best you can):
+
+- implement like/dislike buttons
+    - choose art for icons
+    - on 2 finger click of a message you currently have some options, add "like" 
+      and "dislike" options here
+    - below each message, show number of likes followed by a smaller version of the icon
+    - below each message, show number of dislikes followed by a smaller version of the icon
+- ~3 hours
+
+- implement button to show highest rated comments
+- ~3 hours 
+
+Devise acceptance criteria for the feature:
+- user can easily click on a comment and like or dislike it
+- comment shows how many likes and dislikes it received
+- user can easily click on a button to see top/bottom rated comments to get up to speed
+on conversation

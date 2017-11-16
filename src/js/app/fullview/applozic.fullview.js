@@ -67,6 +67,8 @@ var MCK_CLIENT_GROUP_MAP = [];
             'delete': 'Delete',
             'reply': 'Reply',
             'forward': 'Forward',
+            'like': 'Like',
+            'dislike': "Dislike",
             'copy': 'Copy',
             'block.user': 'Block User',
             'unblock.user': 'Unblock User',
@@ -1726,6 +1728,15 @@ var MCK_CLIENT_GROUP_MAP = [];
                 $mck_msg_new.data('forwardMessageKey', $applozic(this).parents('.mck-m-b').data("msgkey"));
                 $mck_msg_new.trigger('click');
             });
+
+            $applozic(d).on("click", ".mck-message-like", function() {
+                _this.likeMessage($applozic(this).parents('.mck-m-b').data("msgkey"));
+            }); // like button
+
+            $applozic(d).on("click", ".mck-message-dislike", function() {
+                _this.likeMessage($applozic(this).parents('.mck-m-b').data("msgkey"));
+            }); // dislike button
+
             $applozic(".mck-minimize-icon").click(function() {
                 $applozic(".mck-box-md,.mck-box-ft").animate({
                     height: "toggle"
@@ -2245,7 +2256,8 @@ var MCK_CLIENT_GROUP_MAP = [];
                     $mck_msg_error.removeClass('vis').addClass('n-vis');
                     $mck_msg_response.removeClass('vis').addClass('n-vis');
                 });
-                $applozic(d).bind("click", function(e) {
+                $
+                .bind("click", function(e) {
                     $applozic(".mck-context-menu").removeClass('vis').addClass('n-vis');
                     if (d.activeElement.id !== "mck-msg-sbmt") {
                         $mck_write_box.removeClass('mck-text-req');
@@ -2618,6 +2630,31 @@ var MCK_CLIENT_GROUP_MAP = [];
                 $('#mck-reply-to-div').removeClass('vis').addClass('n-vis');
                 $("#mck-text-box").data("AL_REPLY", '');
             });
+
+            _this.likeMessage = function(msgKey) {
+                // TODO this should append the number of likes to a div
+                // below the appropriate message
+
+                $applozic("." + msgKey).addClass(".mck-icon-like");
+
+                // need to add only to the correct message, not all
+                // trying to do that with msgKey but not working
+                // $applozic("." + msgKey + ".mck-msg-right-muted").html("1 like");
+                $applozic(".mck-msg-right-muted").html("1 like");
+
+                // $applozic(".mck-msg-left-muted").html("1 like");
+                // need to add instead of overwrite
+                // and obviously need to track likes instead of hardcoding a number
+
+                // close menu after click
+                $applozic(".mck-context-menu").removeClass("vis").addClass("n-vis");
+            };
+
+            _this.dislikeMessage = function(msgKey) {
+                // TODO make the button functional - 
+                // this should append the number of dislikes to a div
+                // below the appropriate message
+            };
 
 
             _this.deleteMessage = function(msgKey) {
@@ -3702,6 +3739,8 @@ _this.sendVideoCallMessage = function(callId, msgType, contentType, audioOnly) {
                 '<li><a class="mck-message-forward">${msgForwardExpr}</a></li>' +
                 '<li><a class="mck-message-delete">${msgDeleteExpr}</a></li>' +
                 '<li><a class="mck-message-reply ">${msgReplyExpr}</a></li>' +
+                '<li><a class="mck-message-like ">${msgLikeExpr}</a></li>' + // like button
+                '<li><a class="mck-message-dislike ">${msgDislikeExpr}</a></li>' + // dislike button
                 '</ul>' +
                 '</div>' +
                 '</div>';
@@ -4016,6 +4055,7 @@ _this.sendVideoCallMessage = function(callId, msgType, contentType, audioOnly) {
             };
             _this.addTooltip = function(msgKey) {
                 $applozic("." + msgKey + " .mck-icon-time").attr('title', 'pending');
+                $applozic("." + msgKey + " .mck-icon-like").attr('title', 'liked'); // add like tooltip
                 $applozic("." + msgKey + " .mck-btn-trash").attr('title', 'delete');
                 $applozic("." + msgKey + " .mck-icon-sent").attr('title', 'sent');
                 $applozic("." + msgKey + " .mck-btn-forward").attr('title', 'forward message');
@@ -4024,7 +4064,7 @@ _this.sendVideoCallMessage = function(callId, msgType, contentType, audioOnly) {
                 $applozic("." + msgKey + " .msgtype-outbox-cr").attr('title', 'sent via Carrier');
                 $applozic("." + msgKey + " .msgtype-outbox-mck").attr('title', 'sent');
                 $applozic("." + msgKey + " .msgtype-inbox-cr").attr('title', 'received via Carrier');
-                $applozic("." + msgKey + " .msgtype-inbox-mck").attr('title', 'recieved');
+                $applozic("." + msgKey + " .msgtype-inbox-mck").attr('title', 'received');
             };
             _this.fetchContact = function(contactId) {
                 var contact = _this.getContact(contactId);
@@ -4176,6 +4216,8 @@ _this.sendVideoCallMessage = function(callId, msgType, contentType, audioOnly) {
                     msgTypeExpr: msg.type,
                     msgDeleteExpr: MCK_LABELS['delete'],
                     msgReplyExpr: MCK_LABELS['reply'],
+                    msgLikeExpr: MCK_LABELS['like'], // like button
+                    msgDislikeExpr: MCK_LABELS['dislike'], // dislike button
                     msgForwardExpr: MCK_LABELS['forward'],
                     msgSourceExpr: msg.source,
                     statusIconExpr: statusIcon,

@@ -1,0 +1,9 @@
+- The inspect element button is your best friend on the front end. There are a lot
+  of divs.
+
+- New options in the menu need to be added under "labels" on line 30. This was 
+  the last piece I was missing for a while.
+
+- msgKey (and sometimes messageKey) is the variable name for the unique ID 
+  associated with a specific message.
+
